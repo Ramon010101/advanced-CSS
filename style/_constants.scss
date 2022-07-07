@@ -1,0 +1,19 @@
+ @mixin textStyling($font-size, $color) {
+    font-size: $font-size;
+    line-height: 50px;
+    font-weight: 500;
+    color:$color;
+}
+
+@mixin flex($flex-direction, $justify-content, $align-items){
+    display: flex;
+    flex-direction: $flex-direction;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+   
+$font-size-main: 25px;
+$font-size-small: 15px;
+$font-size-titles: 22px;
+$font-family: Verdana, Geneva, Tahoma, sans-serif;

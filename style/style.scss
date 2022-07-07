@@ -1,0 +1,237 @@
+@import "./constants";
+
+*{
+    margin: 0;  
+}
+
+body{
+    background: #c3cfe2;
+}
+
+.exercise-part-1{
+    display: flex;
+    justify-content: center;
+}
+
+.block-main{
+    @include flex(column, center);
+    font-family:$font-family;
+    max-width: 650px;
+    height: 790px;
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 50px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 16px 5px rgba(115,115,115,0.71);
+    
+    .block-part-1{
+        height: 67.5%;
+        background: #ffffff;
+        border-top-left-radius: 30px;
+        border-top-right-radius: 30px;
+        p{
+            margin: 40px;
+            margin-top: 60px;
+            @include textStyling(30px, #555)
+        }
+    }
+
+    .selfie{
+        width: 180px;
+        height: 180px;
+        position: relative;
+        top:-95px;
+        margin-inline: auto;
+        border-radius: 50%;
+        border: #ffffff solid 10px;
+    }
+
+    .block-part-2{
+        @include flex(column, center);
+        background:#686de0;
+        border-bottom-left-radius: 30px;
+        border-bottom-right-radius: 30px;
+        
+        .name{
+            position: relative;
+            top:-70px;
+            text-align: center;  
+            @include textStyling(30px, #ffffff)
+        }
+        .website{
+            position: relative;
+            top:-55px;
+            color: #b3b6eb;
+            text-align: center;
+            font-size:$font-size-main; 
+            font-weight: 500;
+        }
+    }
+}
+
+//Vanaf hier begint opdracht 2
+
+.exerice-part-2{
+    background-color: #c3cfe2;
+    margin-top: 30px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.container{
+    margin-inline: auto;
+    width: 95%; 
+    position: relative;
+    margin-top: 5%;
+}
+
+.selfie-grid{
+    display:block;
+    width:100%;
+    height:auto;
+    border-radius:10px;
+}
+
+.overlay{
+    @include flex(row, center, center);
+    position: absolute;
+    left: 0;
+    right:0;
+    top:0;
+    bottom:0;
+    height: 100%;
+    width: 100%;
+    background-color: #555;
+    border-radius:10px;
+    opacity: 0;
+    transition: 0.1s ease-in;
+    .text-overlay{
+        border-radius: 20px;
+        background-color: #fff;
+        width: 30%;
+        height: 10%;
+        border: none;
+        @include textStyling(20px, #555);
+        line-height:0;
+    }
+}
+
+.overlay:hover{
+    opacity: 1;
+}
+
+@media(max-width: 1024px){
+    .grid{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .container{
+        width: auto;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
+
+@media(max-width: 769px){
+    
+    .block-part-1 p{
+     font-size: $font-size-small  !important; // I dont know why it does not work without !important
+    }
+    
+    .grid{
+        display: grid;
+        grid-template-columns: 100%;
+    }
+
+    .container{
+        width: auto;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+}
+
+
+//Vanaf hier begint opdracht 3
+
+.block-background{
+    background:#c3cfe2 ;
+    height: 600px;
+}
+
+.social-media{
+    @include flex(column, center, flex-end);
+    color: #fff;
+    font-size: $font-size-small;
+    text-decoration: underline;
+
+    height: inherit;
+    > * {
+        padding: 25px 10px 25px 0;
+        width: 250px;
+        text-align: right;
+        align-items: center;
+        transition: transform 0.2s;
+        position: relative;
+        left:190px;
+    }
+
+    >*:hover{
+        transform: translateX(-190px);
+    }
+
+    .fa-laptop-code::before {
+        content: "\f5fc";
+        margin-right: 70px;
+    }
+    .fa-twitter::before {
+        content: "\f099";
+        margin-right: 60px;
+    }
+    .fa-linkedin::before {
+        content: "\f0e1";
+        margin-right: 65px;
+    }
+    .fa-facebook-f::before {
+        content: "\f39e";
+        margin-right: 50px;
+    }
+    .fa-github::before {
+        content: "\f09b";
+        margin-right: 50px;
+    }
+
+
+    .text-laptop{
+        background-color: #e17b77;
+    }
+    
+    .text-twitter{
+        background-color: #00aced;
+    }
+    
+    .text-linkedin{
+        background-color: #007bb6;
+    }
+    
+    .text-facebook{
+        background-color: #3b5998;
+    }
+    
+    .text-github{
+        background-color: #333;
+    }  
+}
+
+
+
+
+
+
+
+
